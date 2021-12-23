@@ -21,23 +21,22 @@ mongoose
 	})
 	.catch(console.error);
 
-// app.get("/pokemon", async (req, res) => {
-// 	const pokemon = await pokemonModel.find();
-// 	try {
-// 		res.send(pokemon);
-// 	} catch (error) {
-// 		res.status(500).send(error);
-// 	}
-// });
+app.get("/pokemon", async (req, res) => {
+	const pokemons = await pokemonModel.find();
+	res.json(pokemons);
+});
 
-app.get("/pokemon/:id", (req, res) => {
-	axios.get("http://pokeapi.co/api/v2/pokemon/id").then((response) => {
-		const p = response.data;
-		// const abilities = res.data.abilities;
-		// const sprite = res.data.sprites.front_default;
-		// const baseExperience = res.data.base_experience;
-		// console.log(name + abilities + sprite + baseExperience);
-		console.log(p);
+app.post("/pokemon", (req, res) => {
+	let randNum = Math.floor(Math.random() * 100) + 1;
+	axios.get(`http://pokeapi.co/api/v2/pokemon/${randNum}`).then((response) => {
+		const pokemon = new pokemonModel({
+			name: response.data.name,
+			abilities: response.data.abilities,
+			sprite: response.data.sprites.front_default,
+			baseExperience: response.data.base_experience,
+		});
+		pokemon.save();
+		res.json(pokemon);
 	});
 });
 
