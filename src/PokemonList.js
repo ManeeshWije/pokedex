@@ -1,11 +1,11 @@
-import React from "react";
-
-export default function PokemonList({ name }) {
+export default function PokemonList() {
   return (
     <div>
-      {name.map((p) => (
-        <div key={p}>{p}</div>
-      ))}
+      <ul>
+        <li>
+          <a href="http://localhost:3001/pokedex">Your Pokedex</a>
+        </li>
+      </ul>
     </div>
   );
 }

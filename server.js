@@ -4,7 +4,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const path = require("path");
 const mongoose = require("mongoose");
-const pokemonModel = require("./models");
+const pokemonModel = require("./models/Pokemon");
+const pokedexModel = require("./models/Pokedex");
 const { default: axios } = require("axios");
 require("dotenv").config();
 
@@ -49,9 +50,26 @@ app.get("/pokemons", (req, res) => {
   });
 });
 
-//TODO
+app.get("/pokedex", async (req, res) => {
+  const pokedex = await pokedexModel.find();
+  res.json(pokedex);
+});
+
 app.post("/pokemon/add", (req, res) => {
-  console.log("hi");
+  const pokemon = new pokedexModel({
+    name: req.body.name,
+    abilities: req.body.abilities,
+    sprite: req.body.sprite,
+    baseExperience: req.body.baseExperience,
+  });
+  pokedexModel.countDocuments({ name: pokemon.name }, (err, count) => {
+    if (count > 0) {
+      console.log("DUPE");
+    } else {
+      pokemon.save();
+    }
+  });
+  res.json(pokemon);
 });
 
 app.listen(PORT, () => {

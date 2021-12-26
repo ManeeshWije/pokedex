@@ -4,7 +4,9 @@
 }
 
 body {
-  font-family: "Courier New", Courier, monospace;
+  background-color: beige;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 img {
@@ -18,4 +20,39 @@ img {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 10px;
+}
+
+.container h3 {
+  padding: 10px;
+}
+
+#add-btn,
+#next-btn {
+  background: linear-gradient(45deg, #fff3a8, #80b3ff);
+  border-style: solid;
+  border-radius: 50px;
+  border-color: black;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  display: inline;
+  cursor: pointer;
+  text-align: center;
+  /*font-family: "Courier New", Courier, monospace;*/
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 900;
+  transition: 0.6s;
+}
+
+#add-btn {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+#add-btn:hover,
+#next-btn:hover {
+  opacity: 0.7;
 }
