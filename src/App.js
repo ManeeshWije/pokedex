@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import PokemonList from "./PokemonList";
 
 function App() {
   const [name, setName] = useState("");
@@ -44,7 +43,6 @@ function App() {
 
   return (
     <>
-      <PokemonList className="pokedex"> </PokemonList>
       <div className="container">
         <h2> Name: {name} </h2>
         <img alt="sprite" src={sprite} />
