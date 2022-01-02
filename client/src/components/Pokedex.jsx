@@ -15,15 +15,22 @@ function Pokedex() {
 		window.location.reload();
 	}
 
-	const getPokedex = () => {
-		axios
-			.get(API + `/pokedex`)
-			.then((response) => {
-				setPokemon(response.data.map((p) => p))
-				console.log(response)
-			})
-			.catch((err) => console.log(err));
-	};
+	//const getPokedex = () => {
+		//axios
+			//.get(API + `/pokedex`)
+			//.then((response) => {
+				//setPokemon(response.data.map((p) => p))
+				//console.log(response)
+			//})
+			//.catch((err) => console.log(err));
+	//};
+	
+	const getPokedex = () => {	
+		fetch(API + "/pokedex")
+			.then((res) => res.json())
+			.then((data) => setPokemon(data))
+			.catch((err) => console.error(err));
+	}
 
 	const deletePokemon = async (id) => {
 		const data = await fetch(API + "/pokedex/delete/" + id, {
@@ -32,7 +39,7 @@ function Pokedex() {
 		  .then((res) => {
 			  res.json();
 		  })
-		//refreshPage()
+		refreshPage()
 	  };
 
 	const lineStyle = {
