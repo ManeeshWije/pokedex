@@ -78,7 +78,7 @@ app.delete("/pokedex/delete/:id", async (req, res) => {
   const pokemon = await pokedexModel.findByIdAndDelete({
     _id: new mongoose.Types.ObjectId(req.params.id),
   });
-  res.json(pokemon);
+  //res.json(pokemon);
 });
 
 app.get("*", (req, res) => {
