@@ -9,6 +9,7 @@ function App() {
   const [abilities, setAbilities] = useState([]);
   const [messages, setMessages] = useState("");
   const API = "https://maneeshs-pokedex.herokuapp.com/";
+  const API2 = "http://localhost:3001/";
 
   useEffect(() => {
     genPokemon();
@@ -30,7 +31,7 @@ function App() {
   };
 
   const addPokemon = async () => {
-    const data = await fetch(API + `/pokemon/add`, {
+    const data = await fetch(API + `pokemon/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

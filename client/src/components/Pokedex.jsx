@@ -5,6 +5,7 @@ import "../index.css"
 function Pokedex() {
 	const [pokemon, setPokemon] = useState([])
 	const API = "https://maneeshs-pokedex.herokuapp.com/"
+	const API2 = "http://localhost:3001/"
 
 	useEffect(() => {
 		getPokedex();
@@ -18,7 +19,8 @@ function Pokedex() {
 		axios
 			.get(API + `pokedex`)
 			.then((response) => {
-				setPokemon(response.data.map((p) => p))
+				setPokemon(response.data)
+				console.log(response)
 			})
 			.catch((err) => console.log(err));
 	};

@@ -12,7 +12,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "client", "build")));
+//app.use(express.static(path.join(__dirname, "client", "build")));
 
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -78,12 +78,12 @@ app.delete("/pokedex/delete/:id", async (req, res) => {
   const pokemon = await pokedexModel.findByIdAndDelete({
     _id: new mongoose.Types.ObjectId(req.params.id),
   });
-  //res.json(pokemon);
+  res.json(pokemon);
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+//app.get("*", (req, res) => {
+//res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+//});
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
