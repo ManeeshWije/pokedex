@@ -10,9 +10,9 @@ function Pokedex() {
 		getPokedex();
 	}, []);
 
-	//const refreshPage = () => {
-		//window.location.reload();
-	//}
+	const refreshPage = () => {
+		window.location.reload();
+	}
 
 	const getPokedex = () => {	
 		fetch(API + "/api/pokedex")
@@ -28,7 +28,7 @@ function Pokedex() {
 		  .then((res) => {
 			  res.json();
 		  })
-		//refreshPage()
+		refreshPage()
 	  };
 
 	const lineStyle = {
