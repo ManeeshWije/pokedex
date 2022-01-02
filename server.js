@@ -37,19 +37,21 @@ app.get("/pokemon", (req, res) => {
   });
 });
 
-app.get("/pokemons", (req, res) => {
+app.get("/pokemons", async (req, res) => {
   let randNum = Math.floor(Math.random() * 898) + 1;
-  axios.get(`http://pokeapi.co/api/v2/pokemon/${randNum}`).then((response) => {
-    const pokemon = new pokemonModel({
-      id: response.data.id,
-      name: response.data.name,
-      abilities: response.data.abilities,
-      sprite: response.data.sprites.front_default,
-      baseExperience: response.data.base_experience,
+  await axios
+    .get(`http://pokeapi.co/api/v2/pokemon/${randNum}`)
+    .then((response) => {
+      const pokemon = new pokemonModel({
+        id: response.data.id,
+        name: response.data.name,
+        abilities: response.data.abilities,
+        sprite: response.data.sprites.front_default,
+        baseExperience: response.data.base_experience,
+      });
+      pokemon.save();
+      res.json(pokemon);
     });
-    pokemon.save();
-    res.json(pokemon);
-  });
 });
 
 app.get("/pokedex", async (req, res) => {

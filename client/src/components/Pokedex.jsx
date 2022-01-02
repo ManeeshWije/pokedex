@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import "../index.css"
 
 function Pokedex() {
@@ -11,20 +10,10 @@ function Pokedex() {
 		getPokedex();
 	}, []);
 
-	const refreshPage = () => {
-		window.location.reload();
-	}
+	//const refreshPage = () => {
+		//window.location.reload();
+	//}
 
-	//const getPokedex = () => {
-		//axios
-			//.get(API + `/pokedex`)
-			//.then((response) => {
-				//setPokemon(response.data.map((p) => p))
-				//console.log(response)
-			//})
-			//.catch((err) => console.log(err));
-	//};
-	
 	const getPokedex = () => {	
 		fetch(API + "/pokedex")
 			.then((res) => res.json())
@@ -39,7 +28,7 @@ function Pokedex() {
 		  .then((res) => {
 			  res.json();
 		  })
-		refreshPage()
+		//refreshPage()
 	  };
 
 	const lineStyle = {
