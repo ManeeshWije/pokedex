@@ -18,7 +18,7 @@ function Pokedex() {
 		axios
 			.get(API + `pokedex`)
 			.then((response) => {
-				setPokemon(response.data)
+				setPokemon(response.data.map((p) => p))
 			})
 			.catch((err) => console.log(err));
 	};
@@ -28,8 +28,9 @@ function Pokedex() {
 		  method: "DELETE",
 		})
 		  .then((res) => {
-			refreshPage()
+			  res.json();
 		  })
+		refreshPage()
 	  };
 
 	const lineStyle = {
