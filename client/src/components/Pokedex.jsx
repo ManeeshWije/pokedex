@@ -4,8 +4,8 @@ import "../index.css"
 
 function Pokedex() {
 	const [pokemon, setPokemon] = useState([])
-	const API = "https://maneeshs-pokedex.herokuapp.com/"
-	const API2 = "http://localhost:3001/"
+	const API = "https://maneeshs-pokedex.herokuapp.com"
+	const API2 = "http://localhost:3001"
 
 	useEffect(() => {
 		getPokedex();
@@ -17,16 +17,16 @@ function Pokedex() {
 
 	const getPokedex = () => {
 		axios
-			.get(API + `pokedex`)
+			.get(API + `/pokedex`)
 			.then((response) => {
-				setPokemon(response.data)
+				setPokemon(response.data.map((p) => p))
 				console.log(response)
 			})
 			.catch((err) => console.log(err));
 	};
 
 	const deletePokemon = async (id) => {
-		const data = await fetch(API + "pokedex/delete/" + id, {
+		const data = await fetch(API + "/pokedex/delete/" + id, {
 		  method: "DELETE",
 		})
 		  .then((res) => {
