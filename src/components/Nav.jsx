@@ -1,11 +1,12 @@
 import React, {useState} from "react"
 import {NavLink} from "react-router-dom"
+import "../index.css"
 
 function Nav (){
 return(
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
-        <div className="container">
+        <div className="nav">
           <NavLink className="navbar-brand" to="/">
             Home
           </NavLink>

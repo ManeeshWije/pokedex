@@ -7,6 +7,7 @@ function App() {
   const [sprite, setSprite] = useState("");
   const [baseExperience, setBaseExperience] = useState(null);
   const [abilities, setAbilities] = useState([]);
+  const [messages, setMessages] = useState("");
 
   useEffect(() => {
     genPokemon();
@@ -22,6 +23,7 @@ function App() {
         let allAbilities =
           response.data.abilities.map((p) => p.ability.name) + ",";
         setAbilities(allAbilities);
+        setMessages("");
       })
       .catch((error) => console.log(error));
   };
@@ -38,25 +40,25 @@ function App() {
         sprite: sprite,
         baseExperience: baseExperience,
       }),
-    }).then((res) => console.log("added"));
+    }).then((res) => {
+      setMessages("ADDED " + name + "!");
+      res.json();
+    });
   };
 
   return (
     <>
       <div className="container">
+        {messages}
         <h2> Name: {name} </h2>
         <img alt="sprite" src={sprite} />
         <h3> Base Experience: {baseExperience} </h3>
-        <h4 className="abilities">
-          Abilities:
-          <a href={`https://pokemondb.net/ability/${abilities}`}>{abilities}</a>
-        </h4>
+        <h4 className="abilities">Abilities: {abilities}</h4>
         <button className="add" id="add-btn" onClick={addPokemon}>
           {" "}
           Add to Pokedex{" "}
         </button>
         <button className="next" id="next-btn" onClick={genPokemon}>
-          {" "}
           Generate New Pokemon{" "}
         </button>
       </div>

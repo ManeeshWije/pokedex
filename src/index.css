@@ -66,3 +66,44 @@ img {
   text-align: center;
   padding: 10px;
 }
+.pokedex .btn {
+  cursor: pointer;
+  transition: 0.6s;
+  background: linear-gradient(45deg, #fff3a8, #80b3ff);
+  border-style: solid;
+  border-radius: 50px;
+  border-color: black;
+  color: black;
+  padding: 10px;
+}
+.pokedex .btn:hover {
+  opacity: 0.7;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 5px;
+}
+
+.nav .navbar-brand,
+.nav-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.6s;
+  background: linear-gradient(45deg, #fff3a8, #80b3ff);
+  border-style: solid;
+  border-radius: 50px;
+  border-color: black;
+  color: black;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.nav .navbar-brand:hover,
+.nav-link:hover {
+  opacity: 0.7;
+}
