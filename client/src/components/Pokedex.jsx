@@ -32,7 +32,7 @@ function Pokedex() {
 		  .then((res) => {
 			  res.json();
 		  })
-		refreshPage()
+		//refreshPage()
 	  };
 
 	const lineStyle = {
