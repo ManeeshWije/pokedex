@@ -28,9 +28,8 @@ function Pokedex() {
 		  method: "DELETE",
 		})
 		  .then((res) => {
-			  res.json()
+			refreshPage()
 		  })
-		refreshPage()
 	  };
 
 	const lineStyle = {
