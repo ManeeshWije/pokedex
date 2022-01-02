@@ -48,7 +48,7 @@ app.get("/pokemons", (req, res) => {
       baseExperience: response.data.base_experience,
     });
     pokemon.save();
-    res.send(pokemon);
+    res.json(pokemon);
   });
 });
 

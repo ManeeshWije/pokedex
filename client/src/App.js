@@ -8,7 +8,7 @@ function App() {
   const [baseExperience, setBaseExperience] = useState(null);
   const [abilities, setAbilities] = useState([]);
   const [messages, setMessages] = useState("");
-  const API = "http://maneeshs-pokedex.herokuapp.com/";
+  const API = "https://maneeshs-pokedex.herokuapp.com/";
 
   useEffect(() => {
     genPokemon();
