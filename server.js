@@ -76,10 +76,7 @@ app.post("/pokemon/add", (req, res) => {
   res.json(pokemon);
 });
 
-app.delete("/api//pokedex/delete/:id", async (req, res) => {
-  //const pokemon = await pokedexModel.findByIdAndDelete({
-  //_id: new mongoose.Types.ObjectId(req.params.id),
-  //});
+app.delete("/api/pokedex/delete/:id", async (req, res) => {
   const pokemon = await pokedexModel.findByIdAndDelete(req.params.id);
   res.json(pokemon);
 });
