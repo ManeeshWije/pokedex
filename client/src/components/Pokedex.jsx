@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../index.css"
+const API = "https://maneeshs-pokedex.herokuapp.com"
+const API2 = "http://localhost:3001"
 
 function Pokedex() {
 	const [pokemon, setPokemon] = useState([])
-	const API = "https://maneeshs-pokedex.herokuapp.com"
-	const API2 = "http://localhost:3001"
 
 	useEffect(() => {
 		getPokedex();
@@ -15,14 +15,14 @@ function Pokedex() {
 	//}
 
 	const getPokedex = () => {	
-		fetch(API + "/api/pokedex")
+		fetch(API + "/pokedex")
 			.then((res) => res.json())
 			.then((data) => setPokemon(data))
 			.catch((err) => console.error(err));
 	}
 
 	const deletePokemon = async (id) => {
-		const data = await fetch(API + "/api/pokedex/delete/" + id, {
+		const data = await fetch(API + "/pokedex/delete/" + id, {
 		  method: "DELETE",
 		})
 		  .then((res) => {

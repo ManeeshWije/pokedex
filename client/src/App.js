@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./index.css";
+const API = "https://maneeshs-pokedex.herokuapp.com";
+const API2 = "http://localhost:3001";
 
 function App() {
   const [name, setName] = useState("");
@@ -8,8 +10,6 @@ function App() {
   const [baseExperience, setBaseExperience] = useState(null);
   const [abilities, setAbilities] = useState([]);
   const [messages, setMessages] = useState("");
-  const API = "https://maneeshs-pokedex.herokuapp.com";
-  const API2 = "http://localhost:3001";
 
   useEffect(() => {
     genPokemon();
