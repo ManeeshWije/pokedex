@@ -12,6 +12,9 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "client", "build")));
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: "true",
@@ -77,6 +80,10 @@ app.delete("/pokedex/delete/:id", async (req, res) => {
     _id: new mongoose.Types.ObjectId(req.params.id),
   });
   res.json(pokemon);
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(PORT, () => {
