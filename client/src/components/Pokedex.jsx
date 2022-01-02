@@ -15,14 +15,14 @@ function Pokedex() {
 	//}
 
 	const getPokedex = () => {	
-		fetch(API + "/pokedex")
+		fetch(API + "/api/pokedex")
 			.then((res) => res.json())
 			.then((data) => setPokemon(data))
 			.catch((err) => console.error(err));
 	}
 
 	const deletePokemon = async (id) => {
-		const data = await fetch(API + "/pokedex/delete/" + id, {
+		const data = await fetch(API + "/api/pokedex/delete/" + id, {
 		  method: "DELETE",
 		})
 		  .then((res) => {

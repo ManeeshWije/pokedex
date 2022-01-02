@@ -54,7 +54,7 @@ app.get("/pokemons", async (req, res) => {
     });
 });
 
-app.get("/pokedex", async (req, res) => {
+app.get("/api/pokedex", async (req, res) => {
   const pokedex = await pokedexModel.find();
   res.json(pokedex);
 });
@@ -76,7 +76,7 @@ app.post("/pokemon/add", (req, res) => {
   res.json(pokemon);
 });
 
-app.delete("/pokedex/delete/:id", async (req, res) => {
+app.delete("/api//pokedex/delete/:id", async (req, res) => {
   //const pokemon = await pokedexModel.findByIdAndDelete({
   //_id: new mongoose.Types.ObjectId(req.params.id),
   //});
