@@ -4,6 +4,7 @@ import "../index.css"
 
 function Pokedex() {
 	const [pokemon, setPokemon] = useState([])
+	const API = "https://maneeshs-pokedex.herokuapp.com/"
 
 	useEffect(() => {
 		getPokedex();
@@ -15,7 +16,7 @@ function Pokedex() {
 
 	const getPokedex = () => {
 		axios
-			.get(`http://localhost:3001/pokedex`)
+			.get(API + `pokedex`)
 			.then((response) => {
 				setPokemon(response.data)
 			})
@@ -23,7 +24,7 @@ function Pokedex() {
 	};
 
 	const deletePokemon = async (id) => {
-		const data = await fetch("http://localhost:3001/pokedex/delete/" + id, {
+		const data = await fetch(API + "pokedex/delete/" + id, {
 		  method: "DELETE",
 		})
 		  .then((res) => {

@@ -12,7 +12,6 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
-// ... other app.use middleware
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 mongoose
@@ -86,6 +85,6 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(3001, () => {
-  console.log(`Server started on port 3001`);
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 });
