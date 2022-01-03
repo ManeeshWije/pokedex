@@ -4,3 +4,6 @@
 - Incorporated the PokeAPI to scrape Pokemon into my MongoDB database
 - Used React in order to display fetched information as well as React Router to create different pages
 - Click the Heroku link to try it out!
+
+![Example](1.png)
+![Example](2.png)
