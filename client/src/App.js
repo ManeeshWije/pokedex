@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./index.css";
-const API = "https://maneeshs-pokedex.herokuapp.com";
-const API2 = "http://localhost:3001";
+const API = "https://maneeshs-pokedex.onrender.com";
+// const API2 = "http://localhost:3001";
 
 function App() {
   const [name, setName] = useState("");
@@ -31,7 +31,7 @@ function App() {
   };
 
   const addPokemon = async () => {
-    const data = await fetch(API + `/pokemon/add`, {
+    await fetch(API + `/pokemon/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

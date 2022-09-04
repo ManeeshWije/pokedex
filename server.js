@@ -9,10 +9,19 @@ const pokedexModel = require("./models/Pokedex");
 const { default: axios } = require("axios");
 require("dotenv").config();
 
+const corsOpts = {
+  origin: '*',
+  methods: [
+    'GET',
+    'POST',
+    'DELETE',
+  ],
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+app.use(cors(corsOpts));
 app.use(express.json());
-app.use(cors());
-
-app.use(express.static(path.join(__dirname, "client", "build")));
 
 mongoose
   .connect(process.env.MONGODB_URI, {

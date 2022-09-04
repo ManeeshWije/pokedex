@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../index.css"
-const API = "https://maneeshs-pokedex.herokuapp.com"
-const API2 = "http://localhost:3001"
+const API = "https://maneeshs-pokedex.onrender.com"
+// const API2 = "http://localhost:3001"
 
 function Pokedex() {
 	const [pokemon, setPokemon] = useState([])
@@ -22,7 +22,7 @@ function Pokedex() {
 	}
 
 	const deletePokemon = async (id) => {
-		const data = await fetch(API + "/api/pokedex/delete/" + id, {
+		await fetch(API + "/api/pokedex/delete/" + id, {
 		  method: "DELETE",
 		})
 		  .then((res) => {
