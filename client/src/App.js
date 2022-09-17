@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./index.css";
-const API = "https://maneeshs-pokedex.onrender.com";
+const API = "pokedex-production-b655.up.railway.app";
 // const API2 = "http://localhost:3001";
 
 function App() {
