@@ -28,6 +28,7 @@ function Pokedex() {
 		  .then((res) => {
 			  res.json();
 		  })
+		refreshPage()
 	  };
 
 	const lineStyle = {
