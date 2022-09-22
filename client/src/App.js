@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import "./index.css";
 const API = "https://pokedex-production-b655.up.railway.app";
-// const API2 = "http://localhost:3001";
+// const API = "http://localhost:3001";
 
 function App() {
   const [name, setName] = useState("");
