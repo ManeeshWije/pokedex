@@ -10,15 +10,9 @@ const { default: axios } = require("axios");
 require("dotenv").config();
 
 const corsOpts = {
-  origin: '*',
-  methods: [
-    'GET',
-    'POST',
-    'DELETE',
-  ],
-  allowedHeaders: [
-    'Content-Type',
-  ],
+  origin: "*",
+  methods: ["GET", "POST", "DELETE"],
+  allowedHeaders: ["Content-Type"],
 };
 app.use(cors(corsOpts));
 app.use(express.json());
@@ -48,17 +42,19 @@ app.get("/pokemon", (req, res) => {
 
 app.get("/pokemons", async (req, res) => {
   let randNum = Math.floor(Math.random() * 898) + 1;
-  await axios.get(`http://pokeapi.co/api/v2/pokemon/${randNum}`).then((response) => {
-    const pokemon = new pokemonModel({
-      id: response.data.id,
-      name: response.data.name,
-      abilities: response.data.abilities,
-      sprite: response.data.sprites.front_default,
-      baseExperience: response.data.base_experience,
+  await axios
+    .get(`http://pokeapi.co/api/v2/pokemon/${randNum}`)
+    .then((response) => {
+      const pokemon = new pokemonModel({
+        id: response.data.id,
+        name: response.data.name,
+        abilities: response.data.abilities,
+        sprite: response.data.sprites.front_default,
+        baseExperience: response.data.base_experience,
+      });
+      pokemon.save();
+      res.json(pokemon);
     });
-    pokemon.save();
-    res.json(pokemon);
-  });
 });
 
 app.get("/api/pokedex", async (req, res) => {
